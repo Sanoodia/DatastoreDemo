@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/carrier/add": {
+      "name": "/carrier/add",
+      "lambdaFunction": "catherdCarrierCall",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

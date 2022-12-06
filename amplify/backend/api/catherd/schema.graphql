@@ -1,0 +1,192 @@
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+#input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
+
+type CatHerd @model @auth(rules: [{ allow: custom }]) {
+  id: ID! @primaryKey(sortKeyFields: ["cat"])
+  cat: String!
+    @index(
+      name: "byCategory"
+      queryField: "dataByCategory"
+      sortKeyFields: ["gsi1sk"]
+    )
+  type: String
+  gsi1sk: String
+    @index(name: "byZone", queryField: "dataByZone", sortKeyFields: ["cat"])
+  tenant_id: String
+    @index(name: "byTenant", queryField: "dataByTenant", sortKeyFields: ["cat"])
+    @index(
+      name: "byTenantClass"
+      queryField: "dataByTenantClass"
+      sortKeyFields: ["classification"]
+    )
+
+  dd_tenant: String
+    @index(
+      name: "byDDTenant"
+      queryField: "dataByDDTenant"
+      sortKeyFields: ["cat"]
+    )
+
+  tenant_name: String
+  tenant_type: String
+
+  z_name: String
+  status: Boolean
+  terminal: String
+  district: String
+  carrier: String
+  basin: String
+  crew: String
+  jobs: String
+  loads: String
+  drivers: String
+  is_assigned: Boolean
+  assign_load_status: String
+  assigned_load_ids: String
+  am_shift_start_time: AWSTime
+  pm_shift_start_time: AWSTime
+  cc_email: String
+  am_alert_time: Int
+  pm_alert_time: Int
+
+  load_name: String
+  load_no: String
+  load_id: String
+    @index(name: "byLoadId", queryField: "allLoadsById")
+  job_id: String
+    @index(name: "byJobId", queryField: "loadByJobId", sortKeyFields: ["cat"])
+    @index(name: "allByJobId", queryField: "allJobsByJobId")
+  linked_terminal_id: String
+  terminal_id: String
+  terminal_name: String
+  linked_product_id: String
+  product_id: String
+  product_name: String
+  stage: String
+  assigned_driver: String
+  load_status: String
+  load_created_at: AWSDateTime
+  carrier_status: String
+  operator_id: String
+  operator_name: String
+
+  job_name: String
+  load_ids: String
+  district_id: String
+  district_name: String
+  crew_id: String
+  crew_name: String
+  basin_id: String
+  basin_name: String
+  linked_carrier: [LinkedCarrier]
+  job_status: String
+  working_status: String
+
+  driver_name: String
+  driver_id: String
+    @index(
+      name: "byDriverId"
+      queryField: "databyDriverId"
+      sortKeyFields: ["cat"]
+    )
+  classification: String
+    @index(name: "byClass", queryField: "databyClassification")
+    @index(name: "getCatHerdByClass", queryField: "getCatHerdByClassification", sortKeyFields: ["id"])
+  phone_no: String
+  email: String
+  on_duty: String
+  driver_carrier_tenant: String
+  shift: String
+  carrier_id: String
+    @index(
+      name: "byCarrier"
+      queryField: "databyCarrier"
+      sortKeyFields: ["id"]
+    )
+  carrier_name: String
+  accepted_load_id: String
+  assigned_boxes: [Box]
+  last_delivered_date: String
+  check_in: String
+  checked_time: String
+  accepted_on_during_checked_in: String
+  trailer_number: String
+  truck_number: String
+  user_id: String
+  turns_per_shift: String
+  no_of_load_delivered_in_current_shift: String
+  driver_status: String
+  driver_linked_status: String
+  avatar: String
+  no_of_assigned_loads: String
+  accepted_loads: [LoadList]
+  active_load: String
+  driver_imported_at: AWSDateTime
+  import_tag: String
+
+  agg_drivers: Int
+  agg_active_drivers: Int
+  agg_active_loads: Int
+
+  am_target: Int
+  pm_target: Int
+  shift_alert_email: [UserEmail]
+  shift_alert_sms: [UserSMS]
+  custom_contact: [CustomContact]
+}
+
+type LinkedCarrier {
+  carrier_id: String
+  carrier_name: String
+  carrier_linked_id: String
+  carrier_status: String
+  carrier_linked_status: String
+}
+type LoadList {
+  acceptedAt: AWSDateTime
+  completedAt: AWSDateTime
+  load_no: String
+  job_no: String
+}
+type UserEmail {
+  id: String
+  name: String
+  email: String
+}
+type UserSMS {
+  id: String
+  name: String
+  phone_no: String
+}
+type CustomContact {
+  id: String
+  reference: String
+  type: String
+  value: String
+}
+type Subscription {
+  onUpdateByCategory(cat: String): CatHerd
+    @aws_subscribe(mutations: ["updateCatHerd", "createCatHerd"])
+  onDeleteByCategory(cat: String): CatHerd
+    @aws_subscribe(mutations: ["deleteCatHerd"])
+  onUpdateByGsortKey(gsi1sk: String): CatHerd
+    @aws_subscribe(mutations: ["createCatHerd", "updateCatHerd"])
+  onUpdateByTenantClassKey(classification: String, tenant_id: String): CatHerd
+    @aws_subscribe(mutations: ["createCatHerd", "updateCatHerd", "deleteCatHerd"])
+  onUpdateById(id: ID, cat: String): CatHerd
+    @aws_subscribe(mutations: ["updateCatHerd", "deleteCatHerd"])
+}
+type Box {
+  box_id: String
+  box_number: Int
+  rolling_time: AWSDateTime
+  proppant_type: String
+  proppant_type_id: Int
+}
+ 
+type GlobalLookups @model @auth(rules: [{ allow: custom }]) {
+  id: ID! @primaryKey(sortKeyFields: ["cat"])
+  cat: String!
+  name: String
+}

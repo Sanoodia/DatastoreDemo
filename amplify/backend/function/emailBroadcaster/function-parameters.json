@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "api": {
+      "catherd": [
+        "Query",
+        "Mutation",
+        "Subscription"
+      ],
+      "dynamoElasticSyncApi": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    },
+    "storage": {
+      "CatHerd:@model(appsync)": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  },
+  "lambdaLayers": [
+    {
+      "type": "ProjectLayer",
+      "resourceName": "catherdlayer92b2588f",
+      "version": "Always choose latest version",
+      "isLatestVersionSelected": true,
+      "env": "dev"
+    }
+  ],
+  "secretNames": [
+    "TWILIO_AUTH_TOKEN",
+    "TWILIO_ACCOUNT_SID",
+    "TWILIO_NOTIFY_SERVICE_SID"
+  ]
+}

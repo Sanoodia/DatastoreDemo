@@ -1,0 +1,70 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-dispatch-dev-112301-authRole",
+      "UnauthRoleArn": "arn:aws:iam::118012458843:role/amplify-dispatch-dev-112301-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::118012458843:role/amplify-dispatch-dev-112301-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-dispatch-dev-112301-deployment",
+      "UnauthRoleName": "amplify-dispatch-dev-112301-unauthRole",
+      "StackName": "amplify-dispatch-dev-112301",
+      "StackId": "arn:aws:cloudformation:us-east-1:118012458843:stack/amplify-dispatch-dev-112301/56dfff10-453f-11ed-9db8-0edba0692fc5",
+      "AmplifyAppId": "dvwiw51rpl9nl"
+    },
+    "categories": {
+      "storage": {
+        "pdEvents": {}
+      },
+      "function": {
+        "catherdlayer92b2588f": {
+          "deploymentBucketName": "amplify-dispatch-dev-112301-deployment",
+          "s3Key": "amplify-builds/catherdlayer92b2588f-LambdaLayerVersion376b182a-build.zip"
+        },
+        "catHerdJobBatch": {},
+        "catHerdLoadBatch": {},
+        "catHerdDriverCalls": {},
+        "graphQlLambdaAuthorizer6118ec67": {},
+        "catHerdAddAllDrivers": {
+          "deploymentBucketName": "amplify-dispatch-dev-112301-deployment",
+          "s3Key": "amplify-builds/catHerdAddAllDrivers-576247596e544c483245-build.zip"
+        },
+        "catHerdAddAllJobs": {},
+        "catHerdAddAllLoads": {
+          "deploymentBucketName": "amplify-dispatch-dev-112301-deployment",
+          "s3Key": "amplify-builds/catHerdAddAllLoads-43632b644b3358617351-build.zip"
+        },
+        "ChangeSubscriber": {
+          "deploymentBucketName": "amplify-dispatch-dev-112301-deployment",
+          "s3Key": "amplify-builds/ChangeSubscriber-59497961716741502f5a-build.zip"
+        },
+        "playground": {},
+        "ApplicationEvents": {},
+        "ZoneOperations": {},
+        "catherdCarrierCall": {},
+        "dynamoElasticSync": {},
+        "elasticsearchSearch": {},
+        "SyncSearch": {},
+        "addAllZoneTags": {},
+        "emailScheduler": {
+          "deploymentBucketName": "amplify-dispatch-dev-112301-deployment",
+          "s3Key": "amplify-builds/emailScheduler-3473664f4331434a504e-build.zip"
+        },
+        "emailBroadcaster": {
+          "deploymentBucketName": "amplify-dispatch-dev-112301-deployment",
+          "s3Key": "amplify-builds/emailBroadcaster-6e396957585a747a2b58-build.zip",
+          "secretsPathAmplifyAppId": "dvwiw51rpl9nl"
+        },
+        "syncAllZones": {
+          "deploymentBucketName": "amplify-dispatch-dev-112301-deployment",
+          "s3Key": "amplify-builds/syncAllZones-4579712b7775784b6258-build.zip"
+        }
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "dvwiw51rpl9nl",
+          "type": "manual"
+        }
+      }
+    }
+  }
+}

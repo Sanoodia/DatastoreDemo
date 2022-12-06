@@ -1,0 +1,54 @@
+{
+  "lambdaLayers": [
+    {
+      "type": "ProjectLayer",
+      "resourceName": "catherdlayer92b2588f",
+      "version": "Always choose latest version",
+      "isLatestVersionSelected": true,
+      "env": "dev"
+    }
+  ],
+  "permissions": {
+    "api": {
+      "catherd": [
+        "Query",
+        "Mutation",
+        "Subscription"
+      ]
+    },
+    "function": {
+      "catHerdJobBatch": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ],
+      "catHerdLoadBatch": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ],
+      "catHerdDriverCalls": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ],
+      "emailScheduler": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    },
+    "storage": {
+      "CatHerd:@model(appsync)": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  }
+}

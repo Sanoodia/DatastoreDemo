@@ -1,0 +1,39 @@
+{
+  "lambdaLayers": [
+    {
+      "type": "ProjectLayer",
+      "resourceName": "catherdlayer92b2588f",
+      "version": "Always choose latest version",
+      "isLatestVersionSelected": true,
+      "env": "dev"
+    }
+  ],
+  "permissions": {
+    "api": {
+      "catherd": [
+        "Query",
+        "Mutation"
+      ]
+    },
+    "storage": {
+      "pdEvents": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ],
+      "CatHerd:@model(appsync)": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ],
+      "GlobalLookups:@model(appsync)": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  }
+}

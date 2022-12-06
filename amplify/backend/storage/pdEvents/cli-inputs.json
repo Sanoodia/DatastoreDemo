@@ -1,0 +1,37 @@
+{
+  "resourceName": "pdEvents",
+  "tableName": "pdEvents",
+  "partitionKey": {
+    "fieldName": "id",
+    "fieldType": "string"
+  },
+  "sortKey": {
+    "fieldName": "waqt",
+    "fieldType": "string"
+  },
+  "gsi": [
+    {
+      "name": "byAction",
+      "partitionKey": {
+        "fieldName": "ActionType",
+        "fieldType": "number"
+      },
+      "sortKey": {
+        "fieldName": "waqt",
+        "fieldType": "string"
+      }
+    },
+    {
+      "name": "byDriver",
+      "partitionKey": {
+        "fieldName": "Driver",
+        "fieldType": "number"
+      },
+      "sortKey": {
+        "fieldName": "waqt",
+        "fieldType": "string"
+      }
+    }
+  ],
+  "triggerFunctions": []
+}

@@ -1,0 +1,8 @@
+[
+  {
+    "Action": ["sqs:*"],
+    "Resource": ["arn:aws:sqs:us-east-1:118012458843:DDQ4DEV", 
+      "arn:aws:sqs:us-east-1:118012458843:DDQ4PROD",
+    "arn:aws:sqs:us-east-1:118012458843:DDQ4STAGE"]
+  }
+]

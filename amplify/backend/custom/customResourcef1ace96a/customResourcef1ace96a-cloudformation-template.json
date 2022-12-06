@@ -1,0 +1,46 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Parameters": {
+    "env": {
+      "Type": "String"
+    },
+    "postFix": {
+      "Type": "String"
+    },
+    "esInstanceType": {
+      "Type": "String"
+    }
+  },
+  "Resources": {
+    "OpenSearchServiceDomain": {
+      "Type": "AWS::Elasticsearch::Domain",
+      "Properties": {
+        "DomainName": {
+          "Fn::Join": [
+            "",
+            [
+              "driverdeck-dd-es",
+              "-",
+              {
+                "Ref": "postFix"
+              }
+            ]
+          ]
+        },
+        "ElasticsearchVersion": "7.10",
+        "ElasticsearchClusterConfig": {
+          "InstanceCount": "1",
+          "InstanceType": {
+            "Ref": "esInstanceType"
+          }
+        },
+        "EBSOptions": {
+          "EBSEnabled": true,
+          "VolumeSize": 10
+        }
+      }
+    }
+  },
+  "Outputs": {},
+  "Description": "{\"createdOn\":\"Windows\",\"createdBy\":\"Amplify\",\"createdWith\":\"10.2.2\",\"stackType\":\"custom-customCloudformation\",\"metadata\":{}}"
+}

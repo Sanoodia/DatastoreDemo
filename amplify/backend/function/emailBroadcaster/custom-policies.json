@@ -1,0 +1,14 @@
+[{
+    "Effect": "Allow",
+    "Action": [
+        "ses:SendEmail",
+        "ses:SendRawEmail",
+        "ses:CreateTemplate",
+        "ses:UpdateTemplate",
+        "ses:SendBulkTemplatedEmail",
+        "s3:*"
+    ],
+    "Resource": [
+        "*"
+    ]
+}]

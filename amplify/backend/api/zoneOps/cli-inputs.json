@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/zone": {
+      "name": "/zone",
+      "lambdaFunction": "ZoneOperations",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
